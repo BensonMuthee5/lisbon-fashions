@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Shop - Lisbon Fashions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /*CSS Styling*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff7f50; /* Coral */
+}
+
+nav ul li a i {
+    font-size: 1.2em;
+}
+
+/* Section Headers */
+h2 {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* Product Styling */
+.product {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s;
+}
+
+.product:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.product h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 1.2em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.product p span {
+    color: #333;
+    font-weight: bold;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+/* WhatsApp Button */
+.btn {
+    background: #ff7f50; /* Coral */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none; /* For link style */
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.btn:hover {
+    background: #e67e22; /* Darker Coral */
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25d366; /* WhatsApp green */
+}
+
+.whatsapp-btn i {
+    margin-right: 5px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1ebe5c; /* Darker WhatsApp green */
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: #ff7f50; /* Coral */
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #e67e22; /* Darker Coral */
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #ff7f50; /* Coral */
+}
+
+
+/* Return to Top Button */
+#return-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff7f50; /* Coral */
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: none; /* Hidden initially */
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+}
+
+#return-to-top:hover {
+    background-color: #e67e22; /* Darker Coral */
+    opacity: 0.9;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .whatsapp-icon {
+        left: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .whatsapp-icon {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    #return-to-top {
+        bottom: 60px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Lisbon Fashions- Women Shop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#shoes">Women's Shoes Collection</a></li>
+                <li><a href="#clothes">Women's Clothes Collection</a></li>
+                <li><a href="#clothes">Women's Bags Collection</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Shoes Section -->
+        <section id="shoes">
+            <h2>Women's Shoes Collection</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Leather Boots</h3>
+                    <img src="leather-boots.jpg" alt="Leather Boots">
+                    <p><span style="text-decoration: line-through;">$150</span></p>
+                    <p>Now: $100</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Leather%20Boots" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Sports Sneakers</h3>
+                    <img src="sports-sneakers.jpg" alt="Sports Sneakers">
+                    <p><span style="text-decoration: line-through;">$120</span></p>
+                    <p>Now: $80</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Sports%20Sneakers" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <!-- Add more shoes here -->
+            </div>
+        </section>
+
+        <!-- Clothes Section -->
+        <section id="clothes">
+            <h2>Women's Clothes Collection</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Formal Suit</h3>
+                    <img src="formal-suit.jpg" alt="Formal Suit">
+                    <p><span style="text-decoration: line-through;">$300</span></p>
+                    <p>Now: $250</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Formal%20Suit" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <!-- Add more clothes here -->
+            </div>
+        </section>
+        <section id="bags">
+            <h2>Women's bags Collection</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Casual Jacket</h3>
+                    <img src="casual-jacket.jpg" alt="Casual Jacket">
+                    <p><span style="text-decoration: line-through;">$80</span></p>
+                    <p>Now: $60</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Casual%20Jacket" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <div class="product">
+                    <h3>Formal Suit</h3>
+                    <img src="formal-suit.jpg" alt="Formal Suit">
+                    <p><span style="text-decoration: line-through;">$300</span></p>
+                    <p>Now: $250</p>
+                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Formal%20Suit" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                <!-- Add more clothes here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home-Page</a>
+            <a href="kids&children-shop.html">Kids & Children Shop</a>
+            <a href="men-shop.html">Women Shop</a>
+            <a href="casual-shop.html">Casual Shop</a>
+        </div>
+        <p>&copy; 2024 Lisbon Fashions. All rights reserved.</p>
+    </footer>
+     <!-- Return to Top Button -->
+    <button id="return-to-top">
+    <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+
+<!-- Link to the external JavaScript file -->
+<script>
+    // Smooth Scrolling for Anchor Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default anchor click behavior
+        const targetId = this.getAttribute('href'); // Get the target ID
+        const targetSection = document.querySelector(targetId); // Select the target section
+
+        // Scroll to the target section smoothly
+        targetSection.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Return to Top Button
+const returnToTopButton = document.getElementById('return-to-top');
+
+// Show button when scrolling down
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        returnToTopButton.style.display = 'block';
+    } else {
+        returnToTopButton.style.display = 'none';
+    }
+});
+
+// Scroll to top when button is clicked
+returnToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+</script>
+</body>
+</html>
+
+
+</body>
+</html>
