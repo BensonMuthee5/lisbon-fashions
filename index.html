@@ -37,43 +37,89 @@ header {
     margin: 0;
 }
 
-/* Base styles for the navigation menu */
+/* Main Menu Styling */
+nav {
+    background-color: #333; /* Background color for the main menu */
+    padding: 10px 20px; /* Padding around the menu */
+}
+
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Ensure the items are in a row */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    display: flex; /* Horizontal layout for the main menu */
+    list-style: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
 }
 
 nav ul li {
-    margin: 10px; /* Adjust the spacing between menu items */
+    position: relative; /* Allows positioning of the submenu */
+    margin-right: 20px; /* Space between main menu items */
 }
 
+/* Main menu links */
 nav ul li a {
-    text-decoration: none;
-    color: #fff; /* Adjust color as needed */
-    padding: 10px 15px; /* Add padding for better click area */
+    color: #fff; /* Color for main menu links */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Padding for main menu links */
+    transition: background 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+/* Hover effect for main menu links */
+nav ul li a:hover {
+    background-color: #ff7f50; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+}
+
+/* Submenu styling */
+nav ul li ul {
+    display: none; /* Hide submenu by default */
+    position: absolute; /* Position submenu below the parent item */
+    top: 100%; /* Align submenu below the parent */
+    left: 0; /* Align left */
+    background-color: #333; /* Same background as main menu */
+    padding: 5px 0; /* Padding for submenu */
+    list-style: none; /* Remove bullets */
+    z-index: 1000; /* Ensure submenu is on top */
+}
+
+/* Submenu items */
+nav ul li ul li {
+    margin: 0; /* Remove margin for submenu items */
+}
+
+/* Submenu links */
+nav ul li ul li a {
+    color: #fff; /* Color for submenu links */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 15px; /* Padding for submenu links */
+}
+
+/* Hover effect for submenu items */
+nav ul li ul li a:hover {
+    background-color: #ff7f50; /* Change background on hover */
+}
+
+/* Show submenu on hover */
+nav ul li:hover ul {
+    display: block; /* Show submenu on hover */
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     nav ul {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items */
-        width: 100%; /* Full width for smaller screens */
+        flex-direction: column; /* Stack menu items vertically on small screens */
+        align-items: flex-start; /* Align items to the left */
     }
 
     nav ul li {
-        width: 100%; /* Ensure items take full width */
-        text-align: center; /* Center align text */
+        width: 100%; /* Full width for menu items */
+        margin-right: 0; /* Remove right margin */
     }
 
-    nav ul li a {
-        display: block; /* Make the link fill the area */
-        padding: 15px; /* Increase padding for larger touch area */
+    nav ul li ul {
+        width: 100%; /* Full width for submenus */
     }
 }
+
 
 
     .return-to-top {
@@ -161,7 +207,7 @@ nav ul li a {
 
 /* Add visibility effects when the section is scrolled out of view */
 .style-section.out-of-view::before {
-    background: rgba(0, 0, 0, 0.8); /* Darker overlay when out of view */
+    background: rgba(0, 0, 0, 0.8); 
 }
 
 /* Button styling for the hero section */
@@ -180,7 +226,7 @@ nav ul li a {
 
 .btn:hover {
     background: #e67e22;
-    transform: translateY(-2px); /* Adds lift effect on hover */
+    transform: translateY(-2px); 
 }
 
 /* Add gradient overlay */
@@ -191,7 +237,7 @@ nav ul li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)); /* Fading gradient */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)); 
     z-index: -1;
 }
 
@@ -253,13 +299,13 @@ nav ul li a {
 
 /* On scroll, make the background image less visible */
 .hero.out-of-view .hero-image {
-    opacity: 0.2; /* Reduced visibility when out of view */
+    opacity: 0.2; 
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .hero {
-        height: 50vh; /* Adjust height for mobile */
+        height: 50vh;
     }
 
     .hero-text h2 {
@@ -380,7 +426,7 @@ footer {
 }
 
 .social-media a:hover {
-    color: #ff7f50; /* Coral */
+    color: #ff7f50;
 }
 
 /* Floating WhatsApp Button */
@@ -416,51 +462,51 @@ footer {
     font-size: 14px; 
 }
 .return-to-top {
-    position: fixed; /* Fixed position */
-    bottom: 20px; /* Bottom offset */
-    right: 20px; /* Right offset */
-    background-color: #ff7f50; /* Button color */
-    color: #fff; /* Text color */
-    border-radius: 50%; /* Circular button */
-    padding: 10px; /* Padding inside the button */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    z-index: 1000; /* Above other elements */
-    display: flex; /* Center content */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    transition: background 0.3s, opacity 0.3s; /* Smooth background and opacity transition */
-    opacity: 0; /* Start hidden */
-    visibility: hidden; /* Start hidden */
-    pointer-events: none; /* Prevent interaction when hidden */
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background-color: #ff7f50; 
+    color: #fff; 
+    border-radius: 50%; 
+    padding: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    z-index: 1000; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    transition: background 0.3s, opacity 0.3s; 
+    opacity: 0; 
+    visibility: hidden; 
+    pointer-events: none; 
 }
 
 .return-to-top.show {
-    opacity: 1; /* Fully visible */
-    visibility: visible; /* Make it visible */
-    pointer-events: auto; /* Enable interaction */
+    opacity: 1; 
+    visibility: visible; 
+    pointer-events: auto; 
 }
 
 .return-to-top a {
-    color: #fff; /* Link color */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px; /* Font size */
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 16px; 
 }
 
 .return-to-top:hover {
-    background-color: #333; /* Darker shade for hover effect */
+    background-color: #333; 
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .return-to-top {
-        bottom: 10px; /* Less distance from the bottom */
-        right: 10px; /* Less distance from the right */
-        padding: 8px; /* Smaller padding */
-        font-size: 14px; /* Smaller font size */
+        bottom: 10px; 
+        right: 10px; 
+        padding: 8px; 
+        font-size: 14px; 
     }
 
     .return-to-top a {
-        font-size: 14px; /* Smaller link font size */
+        font-size: 14px; 
     }
 }
 /* Dropdown Menu Styles */
@@ -471,9 +517,9 @@ nav ul li {
 nav ul .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; /* Positioning the dropdown below the "Categories" */
+    top: 100%; 
     left: 0;
-    background-color: #333; /* Same background color as the menu */
+    background-color: #333; 
     padding: 0;
     margin: 0;
     list-style: none;
@@ -494,47 +540,47 @@ nav ul .dropdown-content li a {
 }
 
 nav ul .dropdown-content li a:hover {
-    background-color: #ff7f50; /* Hover effect color */
+    background-color: #ff7f50; 
 }
 
 nav ul .dropdown:hover .dropdown-content {
-    display: block; /* Shows the dropdown on hover */
+    display: block; 
 }
 
 .image-description {
-    text-align: center; /* Center align the content */
-    margin: 20px 0; /* Add margin around the container */
+    text-align: center; 
+    margin: 20px 0; /
 }
 
 .hero-image {
-    max-width: 100%; /* Make sure the image is responsive */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure the image is a block element */
-    margin: 0 auto; /* Center the image */
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
 }
 
 .description {
-    margin-top: 15px; /* Space between the image and the description */
+    margin-top: 15px; 
 }
 
 .description p {
-    font-size: 16px; /* Font size for the description */
-    color: #555; /* Dark grey color for text */
+    font-size: 16px; 
+    color: #555; 
 }
 
 .view-more {
-    display: inline-block; /* Make it a block for padding */
-    margin-top: 10px; /* Space above the button */
-    text-decoration: none; /* Remove underline */
-    background-color: #3b3b3b; /* Background color for button */
-    color: white; /* Text color */
-    padding: 10px 15px; /* Padding for button */
-    border-radius: 5px; /* Round corners */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    display: inline-block; 
+    margin-top: 10px; 
+    text-decoration: none; 
+    background-color: #3b3b3b; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
 }
 
 .view-more:hover {
-    background-color: #ff7f50; /* Darken background on hover */
+    background-color: #ff7f50; 
 }
     </style>
 </head>
@@ -548,14 +594,14 @@ nav ul .dropdown:hover .dropdown-content {
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#shop">Shop</a></li>
+                <li><a href="#shop">Collections</a></li>
                 <li class="dropdown">
-                    <a href="#categories">Categories</a>
+                    <a href="#categories">Shops</a>
                     <ul class="dropdown-content">
                         <li><a href="men-shop.html">Men Shop</a></li>
                         <li><a href="women-shop.html">Women Shop</a></li>
                         <li><a href="kids&Children-shop.html">Kids & Children</a></li>
-                        <li><a href="casual-shop.html">Casual</a></li>
+                        <li><a href="casual-shop.html">Casual Shop</a></li>
                     </ul>
                 </li>
                 <li><a href="#contact">Contact</a></li>
@@ -587,50 +633,62 @@ nav ul .dropdown:hover .dropdown-content {
                 <div class="product">
                     <h3>Men's Official</h3>
                     <img src="images/bg7.jpg" alt="Elegant Dress">
-                    <p>Your short description goes here.</p>
-                    <a href="men-shop.html" class="view-more">View More</a>
+                    <p>We bring you the latest.</p>
+                    <a href="men-shop.html" class="view-more">Visit Shop</a>
                 </div>
                 <div class="product">
-                    <h3>Women's Shoes</h3>
-                    <img src="images/bg10.jpg" alt="Elegant Dress">
-                    <p>Your short description goes here.</p>
-                    <a href="men-shop.html" class="view-more">View More</a>
+                    <h3>Ladies Shoes</h3>
+                    <img src="images/women/p4.jfif" alt="Elegant Dress">
+                    <p>Get every design here.</p>
+                    <a href="women-shop.html#shoes" class="view-more">Visit Shop</a>
                 </div>
                 <div class="product">
                     <h3>Sport Shoes</h3>
                     <img src="images/bg8.jpg" alt="Elegant Dress">
-                    <p>Your short description goes here.</p>
-                    <a href="casual-shop.html" class="view-more">View More</a>
+                    <p>Get your Gym sports here.</p>
+                    <a href="casual-shop.html#shoes" class="view-more">Visit Shop</a>
                 </div>
                 <div class="product">
                     <h3>Kids Shop</h3>
                     <img src="images/kids.jpg" alt="Elegant Dress">
-                    <p>Your short description goes here.</p>
-                    <a href="men-shop.html" class="view-more">View More</a>
+                    <p>Dress your child here.</p>
+                    <a href="kids-shop.html" class="view-more">Visit Shop</a>
                 </div>
                 <div class="product">
-                    <h3>Men Clothes</h3>
-                    <img src="images/h1.jpg" alt="Elegant Dress">
-                    <p>Your short description goes here.</p>
-                    <a href="men-shop.html" class="view-more">View More</a>
+                    <h3>Women Bags</h3>
+                    <img src="images/women/mk4.jfif" alt="Elegant Dress">
+                    <p>Get a classic bag.</p>
+                    <a href="women-shop.html#bags" class="view-more">Visit Shop</a>
                 </div>
                 <div class="product">
-                    <h3>Elegant Styles</h3>
-                    <img src="images/bbg2.jpg" alt="Elegant Dress">
-                    <p>Your short description goes here.</p>
-                    <a href="men-shop.html" class="view-more">View More</a>
+                    <h3>Men Collection</h3>
+                    <img src="images/men/a33.jpg" alt="Elegant Dress">
+                    <p>All kind shoes available.</p>
+                    <a href="men-shop.html#shoes" class="view-more">Visit Shop</a>
                 </div>
                 <div class="product">
-                    <h3>Women Dress</h3>
+                    <h3>Dress</h3>
                     <img src="images/ress1.jpg" alt="Elegant Dress">
-                    <p>Your short description goes here.</p>
-                    <a href="men-shop.html" class="view-more">View More</a>
+                    <p>Get the latest Dresses here.</p>
+                    <a href="women-shop.html#clothes" class="view-more">Visit Shop</a>
                 </div>
                 <div class="product">
                     <h3>Jersey</h3>
                     <img src="images/jasi.webp" alt="Elegant Dress">
-                    <p>Your short description goes here.</p>
-                    <a href="men-shop.html" class="view-more">View More</a>
+                    <p>Get your Classic.</p>
+                    <a href="casual-shop.html#jersey" class="view-more">Visit Shop</a>
+                </div>
+                <div class="product">
+                    <h3>Airforce</h3>
+                    <img src="images/casual/air1.jfif" alt="Elegant Dress">
+                    <p>All airforces available here.</p>
+                    <a href="casual-shop.html#shoes" class="view-more">Visit Shop</a>
+                </div>
+                <div class="product">
+                    <h3>Tracksuits</h3>
+                    <img src="images/casual/tr1.jfif" alt="Elegant Dress">
+                    <p>We sell classic Tracksuits.</p>
+                    <a href="casual-shop.html#clothes" class="view-more">Visit Shop</a>
                 </div>
 
 
@@ -641,13 +699,14 @@ nav ul .dropdown:hover .dropdown-content {
         <!-- Contact Us Section -->
         <section id="contact">
             <h2>Contact Us</h2>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
+            <form id="contact-form" action="https://formspree.io/f/xldeejog" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn">Send Message</button>
             </form>
         </section>
+        
 
         <!-- Footer -->
         <footer>
@@ -698,35 +757,56 @@ returnToTopButton.addEventListener('click', function () {
 });
 
 
-
-// Add event listeners for the "Add to Cart" buttons
-document.querySelectorAll('.product button').forEach(button => {
-    button.addEventListener('click', function() {
-        const productElement = this.parentElement; 
-        const productName = productElement.querySelector('h3').innerText;
-        const productPrice = productElement.querySelector('p').innerText; 
-
-        addToCart({ name: productName, price: productPrice });
-    });
-});
-
 // Form Handling
-const contactForm = document.querySelector('form');
-contactForm.addEventListener('submit', function(event) {
-    event.preventDefault(); 
+document.getElementById('contact-form').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-    const name = contactForm.querySelector('input[type="text"]').value;
-    const email = contactForm.querySelector('input[type="email"]').value;
-    const message = contactForm.querySelector('textarea').value;
+    const form = event.target;
+    const formData = new FormData(form); // Create a FormData object to hold the form values
+    const submitButton = form.querySelector('button[type="submit"]');
 
-    // Validate the form (basic example)
-    if (name && email && message) {
-        alert(`Thank you, ${name}! Your message has been sent.`);
-        contactForm.reset(); 
-    } else {
-        alert('Please fill in all fields.');
+    // Disable the submit button to prevent multiple submissions
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    try {
+        // Send the form data to Formspree
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            alert('Thank you! Your message has been sent.');
+            form.reset(); // Clear the form
+        } else {
+            alert('Failed to send your message. Please try again later.');
+        }
+    } catch (error) {
+        alert('An error occurred while submitting the form. Please try again.');
+    } finally {
+        // Re-enable the submit button and reset its text
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
     }
 });
+
+// Toggle menu function
+function toggleMenu() {
+    const menu = document.getElementById("nav-menu");
+    menu.classList.toggle("show");
+}
+
+
+// Toggle menu function
+function toggleMenu() {
+    const menu = document.getElementById("nav-menu");
+    menu.classList.toggle("show");
+}
+
 
 window.addEventListener('scroll', function() {
     var styleSection = document.querySelector('.style-section');
@@ -738,16 +818,6 @@ window.addEventListener('scroll', function() {
         styleSection.classList.add('out-of-view');
     }
 });
-
-
-document.querySelector('form').addEventListener('submit', function(event) {
-    alert('Your message is sent!');
-});
-
-function toggleMenu() {
-    const menu = document.getElementById("nav-menu");
-    menu.classList.toggle("show");
-}
     </script>
 </body>
 </html>
