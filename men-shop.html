@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men Shop - Lisbon Fashions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /*CSS Styling*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff7f50; /* Coral */
+}
+
+nav ul li a i {
+    font-size: 1.2em;
+}
+
+/* Section Headers */
+h2 {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* Product Styling */
+.product {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s;
+}
+
+.product:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.product h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 1.2em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.product p span {
+    color: #333;
+    font-weight: bold;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+/* WhatsApp Button */
+.btn {
+    background: #ff7f50; /* Coral */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none; /* For link style */
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.btn:hover {
+    background: #e67e22; /* Darker Coral */
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25d366; /* WhatsApp green */
+}
+
+.whatsapp-btn i {
+    margin-right: 5px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1ebe5c; /* Darker WhatsApp green */
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: #ff7f50; /* Coral */
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #e67e22; /* Darker Coral */
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #ff7f50; /* Coral */
+}
+
+
+/* Return to Top Button */
+#return-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff7f50; /* Coral */
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: none; /* Hidden initially */
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+}
+
+#return-to-top:hover {
+    background-color: #e67e22; /* Darker Coral */
+    opacity: 0.9;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .whatsapp-icon {
+        left: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .whatsapp-icon {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    #return-to-top {
+        bottom: 60px;
+    }
+}
+.image-carousel {
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+    width: 268px; /* Adjusted width */
+    height: 268px; /* Adjusted height */
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.3s ease; /* Smooth transition for scrolling */
+}
+
+.carousel-images img {
+    width: 100%; /* Set the width to fill the container */
+    height: 100%; /* Set height to fill the container */
+    object-fit: cover; /* Cover the entire area, maintaining aspect ratio */
+    display: none; /* Hide all images by default */
+}
+
+.carousel-images img.active {
+    display: block; /* Only show the active image */
+}
+
+.scroll-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* Size of the arrow */
+    color: #333; /* Arrow color */
+    z-index: 10; /* Make sure buttons are above images */
+}
+
+.scroll-button.left {
+    position: absolute;
+    left: 10px; /* Positioning */
+}
+
+.scroll-button.right {
+    position: absolute;
+    right: 10px; /* Positioning */
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Lisbon Fashions- Men Shop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#shoes">Shoes Collection</a></li>
+                <li><a href="#clothes">Clothes Collection</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Shoes Section -->
+        <section id="shoes">
+            <h2>Shoes Collection</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <h3>Timberland Half Boots</h3>
+                    
+                    <!-- product 1 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/a1.jfif" alt="" class="active">
+                            <img src="images/men/a2.jfif" alt="">
+                            <img src="images/men/a3.jfif" alt="">
+                            <img src="images/men/a4.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 40 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Timberland Official Boots</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/b1.jfif" alt="" class="active">
+                            <img src="images/men/b2.jfif" alt="">
+                            <img src="images/men/b3.jfif" alt="">
+                            <img src="images/men/b2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Timberland Boots</h3>
+                    
+                    <!-- product 3 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/c1.jfif" alt="" class="active">
+                            <img src="images/men/c2.jfif" alt="">
+                            <img src="images/men/c3.jfif" alt="">
+                            <img src="images/men/c4.jfif "alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Timberland Boots</h3>
+                    
+                    <!-- product 4 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/d1.jfif" alt="" class="active">
+                            <img src="images/men/d2.jfif" alt="">
+                            <img src="images/men/d1.jfif" alt="">
+                            <img src="images/men/d2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Timberland Boots</h3>
+                    
+                    <!-- product 5 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/e1.jfif" alt="" class="active">
+                            <img src="images/men/e2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Timberland</h3>
+                    
+                    <!-- product 6 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/f1.jfif" alt="" class="active">
+                            <img src="images/men/f2.jfif" alt="">
+                            <img src="images/men/f3.jfif" alt="">
+                            <img src="images/men/f2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Altama Boots</h3>
+                    
+                    <!-- product 7 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/g1.jfif" alt="" class="active">
+                            <img src="images/men/g2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2300</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Jordan 4</h3>
+                    
+                    <!-- product 8 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/h1.jfif" alt="" class="active">
+                            <img src="images/men/h2.jfif" alt="">
+                            <img src="images/men/h3.jfif" alt="">
+                            <img src="images/men/h2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3000</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Puma Sport</h3>
+                    
+                    <!-- product 9 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/i1.jfif" alt="" class="active">
+                            <img src="images/men/i2.jfif" alt="">
+                            <img src="images/men/i3.jfif" alt="">
+                            <img src="images/men/i2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3000</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Puma Sued</h3>
+                    
+                    <!-- product 10 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/j1.jfif" alt="" class="active">
+                            <img src="images/men/j2.jfif" alt="">
+                            <img src="images/men/j3.jfif" alt="">
+                            <img src="images/men/j2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2600</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Jordan 11</h3>
+                    
+                    <!-- product 11 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/k1.jfif" alt="" class="active">
+                            <img src="images/men/k2.jfif" alt="">
+                            <img src="images/men/k3.jfif" alt="">
+                            <img src="images/men/k2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3000</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Airforce</h3>
+                    
+                    <!-- product 12 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/l2.jfif" alt="" class="active">
+                            <img src="images/men/l1.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 36 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3000</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Airmax 90</h3>
+                    
+                    <!-- product 13 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/m1.jfif" alt="" class="active">
+                            <img src="images/men/m2.jfif" alt="">
+                            <img src="images/men/m3.jfif" alt="">
+                            <img src="images/men/m4.jfif "alt="">
+                            <img src="images/men/m5.jfif "alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 36 - 44</p>
+                
+                    
+                    <p>Now: Ksh 2700</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Trainers</h3>
+                    
+                    <!-- product 14 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/n1.jfif" alt="" class="active">
+                            <img src="images/men/n2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 40 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Newbalance</h3>
+                    
+                    <!-- product 15 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/o1.jfif" alt="" class="active">
+                            <img src="images/men/o2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 40 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Clarks</h3>
+                    
+                    <!-- product 16 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/p1.jfif" alt="" class="active">
+                            <img src="images/men/p2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2600</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Leather Half Cut</h3>
+                    
+                    <!-- product 17 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/q1.jfif" alt="" class="active">
+                            <img src="images/men/q2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3000</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Tommy,Timber & Lacoste</h3>
+                    
+                    <!-- product 18 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/r1.jfif" alt="" class="active">
+                            <img src="images/men/r2.jfif" alt="">
+                            <img src="images/men/r3.jfif" alt="">
+                            <img src="images/men/r4.jfif" alt="">
+                            <img src="images/men/r5.jfif" alt="">
+                            <img src="images/men/r6.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 40 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2600</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Timber Boot</h3>
+                    
+                    <!-- product 19 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/s1.jfif" alt="" class="active">
+                            <img src="images/men/s2.jfif" alt="">
+                            <img src="images/men/s3.jfif" alt="">
+                            <img src="images/men/s4.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Nike Tiempo</h3>
+                    
+                    <!-- product 20 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/t1.jfif" alt="" class="active">
+                            <img src="images/men/t2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2700</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Jordan 1</h3>
+                    
+                    <!-- product 21 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/u1.jfif" alt="" class="active">
+                            <img src="images/men/u2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2700</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Boot Clarks</h3>
+                    
+                    <!-- product 22 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/v1.jfif" alt="" class="active">
+                            <img src="images/men/v2.jfif" alt="">
+                            <img src="images/men/v3.jfif" alt="">
+                            <img src="images/men/v2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Boots</h3>
+                    
+                    <!-- product 23 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/w1.jfif" alt="" class="active">
+                            <img src="images/men/w2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Men's Official</h3>
+                    
+                    <!-- product 24 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/z3.jfif" alt="" class="active">
+                            <img src="images/men/z1.jfif" alt="">
+                            <img src="images/men/z2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Men's Official</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/x6.jfif" alt="" class="active">
+                            <img src="images/men/x2.jfif" alt="">
+                            <img src="images/men/x3.jfif" alt="">
+                            <img src="images/men/x1.jfif" alt="">
+                            <img src="images/men/x4.jfif" alt="">
+                            <img src="images/men/x5.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Solomon</h3>
+                    
+                    <!-- product 27 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/sol2.jfif" alt="" class="active">
+                            <img src="images/men/sol4.jfif" alt="">
+                            <img src="images/men/sol1.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Shocks Sports</h3>
+                    
+                    <!-- product 28 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/sh1.jfif" alt="" class="active">
+                            <img src="images/men/sh2.jfif" alt="">
+                            <img src="images/men/sh3.jfif" alt="">
+                            <img src="images/men/sh2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3300</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Men Official</h3>
+                    
+                    <!-- product 29 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/bb1.jfif" alt="" class="active">
+                            <img src="images/men/bb2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2800</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>NIKE SB CHRON</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/ff1.jfif" alt="" class="active">
+                            <img src="images/men/ff2.jfif" alt="">
+                            <img src="images/men/ff3.jfif" alt="">
+                            <img src="images/men/ff4.jfif" alt="">
+                            <img src="images/men/ff5.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2800</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Men Official</h3>
+                    
+                    <!-- product 32 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/gg1.jfif" alt="" class="active">
+                            <img src="images/men/gg2.jfif" alt="">
+                            <img src="images/men/gg3.jfif" alt="">
+                            <img src="images/men/gg4.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 39 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2700</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Le Coq Sportif</h3>
+                    
+                    <!-- product 33 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/hh1.jfif" alt="" class="active">
+                            <img src="images/men/hh2.jfif" alt="">
+                            <img src="images/men/hh3.jfif" alt="">
+                            <img src="images/men/hh4.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 40 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2700</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Newfas Sport</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/ii1.jfif" alt="" class="active">
+                            <img src="images/men/ii2.jfif" alt="">
+                            <img src="images/men/ii3.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 40 - 44</p>
+                
+                    
+                    <p>Now: Ksh 2300</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Calvin Klein</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/jj1.jfif" alt="" class="active">
+                            <img src="images/men/jj2.jfif" alt="">
+                            <img src="images/men/jj3.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 40 - 44</p>
+                
+                    
+                    <p>Now: Ksh 4300</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Tommy Hilfiger</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/kk1.jfif" alt="" class="active">
+                            <img src="images/men/kk2.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 40 - 44</p>
+                
+                    
+                    <p>Now: Ksh 4300</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Solomon Sneakers</h3>
+                    
+                    <!-- product 35 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/ll1.jfif" alt="" class="active">
+                            <img src="images/men/ll2.jfif" alt="">
+                            <img src="images/men/ll3.jfif" alt="">
+                            <img src="images/men/ll4.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 3000</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>NIKE ZOOM</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/mm1.jfif" alt="" class="active">
+                            <img src="images/men/mm2.jfif" alt="">
+                            <img src="images/men/mm3.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 41 - 45</p>
+                
+                    
+                    <p>Now: Ksh 2800</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Lv Trainer Denim</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/nn1.jfif" alt="" class="active">
+                            <img src="images/men/nn2.jfif" alt="">
+                            <img src="images/men/nn3.jfif" alt="">
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 39 - 44</p>
+                
+                    
+                    <p>Now: Ksh 3300</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Clothes Section -->
+        <section id="clothes">
+            <h2>Clothes Collection</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <h3>Denim Trousers</h3>
+                    
+                    <!-- product 1 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/den5.jfif" alt="" class="active">
+                            <img src="images/men/den1.jfif" alt="">
+                            <img src="images/men/den2.jfif" alt="">
+                            <img src="images/men/den3.jfif" alt="">
+                            
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 30 - 40</p>
+                
+                    
+                    <p>Now: Ksh 1700</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>HIGH END TSHIRTS</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/hd1.jfif" alt="" class="active">
+                            <img src="images/men/hd2.jfif" alt="">
+                            <img src="images/men/hd3.jfif" alt="">
+                            
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: SMALL-2XL</p>
+                
+                    
+                    <p>Now: Ksh 1500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Supreem TSHIRTS</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/supreme.jfif" alt="" class="active">
+                            <img src="images/men/supreme2.jfif" alt="">
+                            <img src="images/men/supreme3.jfif" alt="">
+                            
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: M-2XL</p>
+                
+                    
+                    <p>Now: Ksh 1500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>GUCCI TSHIRTS</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/gucii1.jfif" alt="" class="active">
+                            
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: M-2XL</p>
+                
+                    
+                    <p>Now: Ksh 1500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>Classic TSHIRTS</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/clasiic2.jfif" alt="" class="active">
+                            <img src="images/men/clasiic2.jfif" alt="">
+                            
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: M-2XL</p>
+                
+                    
+                    <p>Now: Ksh 1500</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>VINTAGE TSHIRTS</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/Vintage 1.jfif" alt="" class="active">
+                            <img src="images/men/Vintage 2.jfif" alt="">
+                            <img src="images/men/Vintage 3.jfif" alt="">
+                            
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: M-2XL</p>
+                
+                    
+                    <p>Now: Ksh 1400</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>NIKE TSHIRTS</h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/nike.jfif" alt="" class="active">
+                            <img src="images/men/nike.jfif" alt="">
+                            
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: M-2XL</p>
+                
+                    
+                    <p>Now: Ksh 1400</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+
+                <div class="product">
+                    <h3>PLAIN KEANS </h3>
+                    
+                    <!-- product 2 -->
+                    <div class="image-carousel">
+                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                
+                        <!-- Main Image Carousel -->
+                        <div class="carousel-images">
+                            <img src="images/men/pn1.jfif" alt="" class="active">
+                            <img src="images/men/pn2.jfif" alt="">
+                            <img src="images/men/pn3.jfif" alt="">
+                            
+                        </div>
+                
+                        <!-- Right Scroll Button -->
+                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
+                    </div>
+
+                    <p class="shoe-size">Available Sizes: 30 - 40</p>
+                
+                    
+                    <p>Now: Ksh 1700</p>
+                    <a href="https://wa.me/+254708035693?text=Hello" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                </div>
+       
+            
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="women-shop.html">Women Shop</a>
+            <a href="kids-shop.html">Children Shop</a>
+            <a href="casual-shop.html">Casual Shop</a>
+        </div>
+        <p>&copy; 2024 Lisbon Fashions. All rights reserved.</p>
+    </footer>
+     <!-- Return to Top Button -->
+    <button id="return-to-top">
+    <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+
+<!-- Link to the external JavaScript file -->
+<script>
+    // Smooth Scrolling for Anchor Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default anchor click behavior
+        const targetId = this.getAttribute('href'); // Get the target ID
+        const targetSection = document.querySelector(targetId); // Select the target section
+
+        // Scroll to the target section smoothly
+        targetSection.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Return to Top Button
+const returnToTopButton = document.getElementById('return-to-top');
+
+// Show button when scrolling down
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        returnToTopButton.style.display = 'block';
+    } else {
+        returnToTopButton.style.display = 'none';
+    }
+});
+
+// Scroll to top when button is clicked
+returnToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+let currentIndex = 0;
+
+function scrollCarousel(direction) {
+    const carousel = event.currentTarget.closest('.image-carousel'); // Get the closest image carousel
+    const images = carousel.querySelectorAll('.carousel-images img'); // Select images only within this carousel
+    const totalImages = images.length;
+
+    // Hide the current image
+    images[currentIndex].classList.remove('active');
+
+    // Update current index
+    currentIndex += direction;
+
+    // Loop around the index
+    if (currentIndex < 0) {
+        currentIndex = totalImages - 1; // Go to last image
+    } else if (currentIndex >= totalImages) {
+        currentIndex = 0; // Go to first image
+    }
+
+    // Show the new active image
+    images[currentIndex].classList.add('active');
+}
+
+
+
+</script>
+</body>
+</html>
+
+
+</body>
+</html>

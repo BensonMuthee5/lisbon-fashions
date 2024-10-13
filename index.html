@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids & Children Shop - Lisbon Fashions</title>
+    <title>Lisbon Fashions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
     <style>
-        /*CSS Styling*/
+        /*My styling section*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
 }
 
-
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Futura', sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
 }
 
-/* Header */
+/* Header Styles */
 header {
     background: #333;
     color: #fff;
-    padding: 15px 20px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,56 +37,297 @@ header {
     margin: 0;
 }
 
+/* Base styles for the navigation menu */
 nav ul {
     list-style: none;
-    display: flex;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Ensure the items are in a row */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 10px; /* Adjust the spacing between menu items */
 }
 
 nav ul li a {
-    color: #fff;
     text-decoration: none;
-    transition: color 0.3s;
+    color: #fff; /* Adjust color as needed */
+    padding: 10px 15px; /* Add padding for better click area */
 }
 
-nav ul li a:hover {
-    color: #ff7f50; /* Coral */
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    nav ul li {
+        width: 100%; /* Ensure items take full width */
+        text-align: center; /* Center align text */
+    }
+
+    nav ul li a {
+        display: block; /* Make the link fill the area */
+        padding: 15px; /* Increase padding for larger touch area */
+    }
 }
 
-nav ul li a i {
-    font-size: 1.2em;
+
+    .return-to-top {
+        bottom: 10px; /* Adjust bottom for smaller screens */
+        right: 10px; /* Adjust right for smaller screens */
+        padding: 8px; /* Smaller padding */
+        font-size: 14px; /* Smaller font size */
+    }
+
+
+.cart-icon {
+    margin-left: auto; 
 }
 
-/* Section Headers */
-h2 {
-    font-size: 2em;
+.cart-icon a {
+    font-size: 1.5em;
+    color: #fff;
+}
+
+/* Find Your Unique Style Section */
+.style-section {
+    position: relative;
+    height: 70vh; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin: 20px 0;
-    color: #333;
+    color: white;
+    background-image: url('images/bbg3.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    z-index: 1;
+    transition: background 0.5s ease; 
+    overflow: hidden;
 }
 
-/* Product Grid */
+/* Apply a subtle gradient overlay */
+.style-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay with 40% opacity */
+    z-index: -1; /* Ensures it stays behind content */
+    transition: background 0.5s ease;
+}
+
+/* Text and button styling inside the section */
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.style-section h2 {
+    font-size: 3em; /* Adjust to preference */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.style-section p {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+/* Button styling for the call-to-action */
+.btn {
+    background: #ff7f50;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #e67e22;
+}
+
+/* Add visibility effects when the section is scrolled out of view */
+.style-section.out-of-view::before {
+    background: rgba(0, 0, 0, 0.8); /* Darker overlay when out of view */
+}
+
+/* Button styling for the hero section */
+.btn {
+    background: #ff7f50;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: #e67e22;
+    transform: translateY(-2px); /* Adds lift effect on hover */
+}
+
+/* Add gradient overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)); /* Fading gradient */
+    z-index: -1;
+}
+
+/* On scroll, make the background image less visible */
+.hero.out-of-view .hero-image {
+    opacity: 0.2; /* Reduced visibility when out of view */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh; /* Adjust height for mobile */
+    }
+
+    .hero-text h2 {
+        font-size: 2em;
+    }
+
+    .hero-text p {
+        font-size: 1.1em;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 10px 25px;
+    }
+}
+
+/* Button styling for the hero section */
+.btn {
+    background: #ff7f50;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: #e67e22;
+    transform: translateY(-2px); /* Adds lift effect on hover */
+}
+
+/* Add gradient overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)); /* Fading gradient */
+    z-index: -1;
+}
+
+/* On scroll, make the background image less visible */
+.hero.out-of-view .hero-image {
+    opacity: 0.2; /* Reduced visibility when out of view */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh; /* Adjust height for mobile */
+    }
+
+    .hero-text h2 {
+        font-size: 2em;
+    }
+
+    .hero-text p {
+        font-size: 1.1em;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 10px 25px;
+    }
+}
+
+.btn {
+    background: #ff7f50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #e67e22; 
+}
+
+@media (max-width: 600px) {
+    .hero-text h2 {
+        font-size: 1.5em; 
+    }
+
+    .hero-text p {
+        font-size: 1em; 
+    }
+}
+
+/* Section Styles */
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Shop Section */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
 }
 
-/* Product Styling */
 .product {
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    background-color: #f9f9f9;
     transition: box-shadow 0.3s;
 }
 
@@ -95,89 +335,41 @@ h2 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.product h3 {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-    color: #333;
-}
-
 .product img {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 10px;
 }
 
-.product p {
-    font-size: 1.2em;
-    color: #888;
-    margin-bottom: 10px;
+/* Contact Form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.product p span {
-    color: #333;
-    font-weight: bold;
-    text-decoration: line-through;
-    margin-right: 10px;
-}
-
-/* WhatsApp Button */
-.btn {
-    background: #ff7f50; /* Coral */
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-decoration: none; /* For link style */
-    display: inline-block;
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
     margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-.btn:hover {
-    background: #e67e22; /* Darker Coral */
-}
-
-.whatsapp-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #25d366; /* WhatsApp green */
-}
-
-.whatsapp-btn i {
-    margin-right: 5px;
-}
-
-.whatsapp-btn:hover {
-    background-color: #1ebe5c; /* Darker WhatsApp green */
+form button {
+    display: block;
+    width: 100%;
 }
 
 /* Footer */
 footer {
-    background: #333;
-    color: #fff;
     text-align: center;
     padding: 20px 0;
-    margin-top: 20px;
-    position: relative;
-    bottom: 0;
+    background: #333;
+    color: #fff;
 }
 
-.footer-links {
-    margin: 20px 0;
-}
-
-.footer-links a {
-    color: #ff7f50; /* Coral */
-    margin: 0 10px;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: #e67e22; /* Darker Coral */
+.social-media {
+    margin: 10px 0;
 }
 
 .social-media a {
@@ -191,728 +383,371 @@ footer {
     color: #ff7f50; /* Coral */
 }
 
-
-/* Return to Top Button */
-#return-to-top {
+/* Floating WhatsApp Button */
+.whatsapp-icon {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #ff7f50; /* Coral */
-    color: white;
-    font-size: 18px;
-    padding: 10px 15px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    display: none; /* Hidden initially */
-    transition: background-color 0.3s ease, opacity 0.3s ease;
+    bottom: 20px;
+    left: 20px; 
+    background-color: #25D366; 
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    display: flex; 
+    align-items: center; 
 }
 
-#return-to-top:hover {
-    background-color: #e67e22; /* Darker Coral */
-    opacity: 0.9;
+.whatsapp-icon a {
+    display: flex; 
+    align-items: center; 
+    color: #fff; 
+    text-decoration: none; 
 }
 
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .whatsapp-icon {
-        left: 10px;
-    }
+.whatsapp-icon i {
+    font-size: 24px; 
+    margin-right: 8px; 
 }
 
+.whatsapp-icon span {
+    font-size: 14px; 
+}
+.whatsapp-icon span {
+    font-size: 14px; 
+}
+.return-to-top {
+    position: fixed; /* Fixed position */
+    bottom: 20px; /* Bottom offset */
+    right: 20px; /* Right offset */
+    background-color: #ff7f50; /* Button color */
+    color: #fff; /* Text color */
+    border-radius: 50%; /* Circular button */
+    padding: 10px; /* Padding inside the button */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    z-index: 1000; /* Above other elements */
+    display: flex; /* Center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    transition: background 0.3s, opacity 0.3s; /* Smooth background and opacity transition */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Start hidden */
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.return-to-top.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it visible */
+    pointer-events: auto; /* Enable interaction */
+}
+
+.return-to-top a {
+    color: #fff; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+}
+
+.return-to-top:hover {
+    background-color: #333; /* Darker shade for hover effect */
+}
+
+/* Responsive adjustments */
 @media (max-width: 600px) {
-    .whatsapp-icon {
-        bottom: 10px;
-        left: 10px;
+    .return-to-top {
+        bottom: 10px; /* Less distance from the bottom */
+        right: 10px; /* Less distance from the right */
+        padding: 8px; /* Smaller padding */
+        font-size: 14px; /* Smaller font size */
     }
 
-    #return-to-top {
-        bottom: 60px;
+    .return-to-top a {
+        font-size: 14px; /* Smaller link font size */
     }
 }
-.image-carousel {
-    display: flex;
-    align-items: center;
-    overflow: hidden; /* Hide overflow */
+/* Dropdown Menu Styles */
+nav ul li {
     position: relative;
-    width: 268px; /* Adjusted width */
-    height: 268px; /* Adjusted height */
 }
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.3s ease; /* Smooth transition for scrolling */
-}
-
-.carousel-images img {
-    width: 100%; /* Set the width to fill the container */
-    height: 100%; /* Set height to fill the container */
-    object-fit: cover; /* Cover the entire area, maintaining aspect ratio */
-    display: none; /* Hide all images by default */
-}
-
-.carousel-images img.active {
-    display: block; /* Only show the active image */
-}
-
-.scroll-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px; /* Size of the arrow */
-    color: #333; /* Arrow color */
-    z-index: 10; /* Make sure buttons are above images */
-}
-
-.scroll-button.left {
+nav ul .dropdown-content {
+    display: none;
     position: absolute;
-    left: 10px; /* Positioning */
+    top: 100%; /* Positioning the dropdown below the "Categories" */
+    left: 0;
+    background-color: #333; /* Same background color as the menu */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
-.scroll-button.right {
-    position: absolute;
-    right: 10px; /* Positioning */
+nav ul .dropdown-content li {
+    width: 150px;
 }
 
+nav ul .dropdown-content li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
 
+nav ul .dropdown-content li a:hover {
+    background-color: #ff7f50; /* Hover effect color */
+}
 
+nav ul .dropdown:hover .dropdown-content {
+    display: block; /* Shows the dropdown on hover */
+}
+
+.image-description {
+    text-align: center; /* Center align the content */
+    margin: 20px 0; /* Add margin around the container */
+}
+
+.hero-image {
+    max-width: 100%; /* Make sure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is a block element */
+    margin: 0 auto; /* Center the image */
+}
+
+.description {
+    margin-top: 15px; /* Space between the image and the description */
+}
+
+.description p {
+    font-size: 16px; /* Font size for the description */
+    color: #555; /* Dark grey color for text */
+}
+
+.view-more {
+    display: inline-block; /* Make it a block for padding */
+    margin-top: 10px; /* Space above the button */
+    text-decoration: none; /* Remove underline */
+    background-color: #3b3b3b; /* Background color for button */
+    color: white; /* Text color */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Round corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.view-more:hover {
+    background-color: #ff7f50; /* Darken background on hover */
+}
     </style>
 </head>
 <body>
-
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <h1>Lisbon Fashions- Kids & Children Shop</h1>
+            <h1>Lisbon Fashions</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#shoes">Shoes Collection</a></li>
-                <li><a href="#clothes">Clothes Collection</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li class="dropdown">
+                    <a href="#categories">Categories</a>
+                    <ul class="dropdown-content">
+                        <li><a href="men-shop.html">Men Shop</a></li>
+                        <li><a href="women-shop.html">Women Shop</a></li>
+                        <li><a href="kids&Children-shop.html">Kids & Children</a></li>
+                        <li><a href="casual-shop.html">Casual</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content Section -->
     <main>
-        <!-- Shoes Section -->
-        <section id="shoes">
-            <h2>Shoes Collection</h2>
+        <!-- About Us Section -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Lisbon Fashions is your ultimate destination for stylish, high-quality footwear and apparel, combining comfort and modern trends. We offer affordable options for every occasion, ensuring you look and feel great. Shop with us for exceptional style and customer service!</p>
+        </section>
+
+        <!-- Find Your Unique Style Section -->
+<section id="find-your-style" class="style-section">
+    <div class="content-wrapper">
+        <h2>Find Your Unique Style</h2>
+        <p>Discover exclusive and trendy collections right at your fingertips!</p>
+        <a href="#shop" class="btn">Shop Now</a>
+    </div>
+</section>
+
+
+        <!-- Shop Section -->
+        <section id="shop">
+            <h2>Shop Our Collections</h2>
             <div class="product-grid">
                 <div class="product">
-                    <h3>Kids NewBal Sneaker</h3>
-                    
-                    <!-- product 1 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/newbgreen.jfif" alt="Kids New Balance Sneaker - Color 1" class="active">
-                            <img src="kids/newbwhite.jfif" alt="Kids New Balance Sneaker - Color 2">
-                            <img src="kids/newblack.jfif" alt="Kids New Balance Sneaker - Color 3">
-                            <img src="kids/newbgrreen2.jfif" alt="Kids New Balance Sneaker - Color 4">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 28, 29, 30</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2200</span></p>
-                    <p>Now: Ksh 2000</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                    <h3>Men's Official</h3>
+                    <img src="images/bg7.jpg" alt="Elegant Dress">
+                    <p>Your short description goes here.</p>
+                    <a href="men-shop.html" class="view-more">View More</a>
                 </div>
-
                 <div class="product">
-                    <h3>Kids Sport Shoes</h3>
-                    
-                    <!-- product 2 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/kidsportbpink.jfif" alt="" class="active">
-                            <img src="kids/kidsportbwhite.jfif" alt="">
-                            
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 26 - 36</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2200</span></p>
-                    <p>Now: Ksh 2100</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                    <h3>Women's Shoes</h3>
+                    <img src="images/bg10.jpg" alt="Elegant Dress">
+                    <p>Your short description goes here.</p>
+                    <a href="men-shop.html" class="view-more">View More</a>
                 </div>
-
-
                 <div class="product">
-                    <h3>Unisex kids led shoes</h3>
-                    
-                    <!-- product 3 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/Unisex kids led shoes2.jfif" alt="Kids New Balance Sneaker - Color 1" class="active">
-                            <img src="kids/Unisex kids led shoes.jfif" alt="">
-                            <img src="kids/Unisex kids led shoes3.jfif" alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 26 - 36</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2000</span></p>
-                    <p>Now: Ksh 1950</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                    <h3>Sport Shoes</h3>
+                    <img src="images/bg8.jpg" alt="Elegant Dress">
+                    <p>Your short description goes here.</p>
+                    <a href="casual-shop.html" class="view-more">View More</a>
                 </div>
-
                 <div class="product">
-                    <h3>Unisex Kids Sneaker</h3>
-                    
-                    <!-- product 4 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/unisexkidsneakerblack.jfif" alt="" class="active">
-                            <img src="kids/unisexkidsneaker.jfif" alt="">
-                            <img src="kids/unisexkidsneakerpink.jfif" alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 21 - 32</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2150</span></p>
-                    <p>Now: Ksh 1900</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                    <h3>Kids Shop</h3>
+                    <img src="images/kids.jpg" alt="Elegant Dress">
+                    <p>Your short description goes here.</p>
+                    <a href="men-shop.html" class="view-more">View More</a>
                 </div>
-
                 <div class="product">
-                    <h3>Kids Bapestar</h3>
-                    
-                    <!-- product 5 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/kidsbape.jfif" alt="Kids New Balance Sneaker - Color 1" class="active">
-                            <img src="kids/kidsbape2.jfif" alt="Kids New Balance Sneaker - Color 2">
-                            <img src="kids/kidsbape3.jfif" alt="Kids New Balance Sneaker - Color 3">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 25 - 30</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2400</span></p>
-                    <p>Now: Ksh 2300</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                    <h3>Men Clothes</h3>
+                    <img src="images/h1.jpg" alt="Elegant Dress">
+                    <p>Your short description goes here.</p>
+                    <a href="men-shop.html" class="view-more">View More</a>
                 </div>
-
-
                 <div class="product">
-                    <h3>Kids Sneakers</h3>
-                    
-                    <!-- product 6 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/kids1.jfif" alt="" class="active">
-                            <img src="kids/kids2.jfif" alt="">
-                            <img src="kids/kids3.jfif" alt="">
-                            <img src="kids/kids4.jfif" alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 26 - 34</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2000</span></p>
-                    <p>Now: Ksh 1900</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                    <h3>Elegant Styles</h3>
+                    <img src="images/bbg2.jpg" alt="Elegant Dress">
+                    <p>Your short description goes here.</p>
+                    <a href="men-shop.html" class="view-more">View More</a>
                 </div>
-
                 <div class="product">
-                    <h3>Girls's led Sneakers</h3>
-                    
-                    <!-- product 7 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/gals1.jfif" alt="" class="active">
-                            <img src="kids/gals2.jfif" alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 25 - 32</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2050</span></p>
-                    <p>Now: Ksh 2000</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                    <h3>Women Dress</h3>
+                    <img src="images/ress1.jpg" alt="Elegant Dress">
+                    <p>Your short description goes here.</p>
+                    <a href="men-shop.html" class="view-more">View More</a>
                 </div>
-
                 <div class="product">
-                    <h3>Kid's Gucci Shoes</h3>
-                    
-                    <!-- product 8 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/guci2.jfif" alt="" class="active">
-                            <img src="kids/guci1.jfif" alt="">
-                            <img src="kids/guci3.jfif" alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 26 - 35</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2100</span></p>
-                    <p>Now: Ksh 1950</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
+                    <h3>Jersey</h3>
+                    <img src="images/jasi.webp" alt="Elegant Dress">
+                    <p>Your short description goes here.</p>
+                    <a href="men-shop.html" class="view-more">View More</a>
                 </div>
 
-                <div class="product">
-                    <h3>Kid's Shoes</h3>
-                    
-                    <!-- product 9 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/kd2.jfif" alt="" class="active">
-                            <img src="kids/kd1.jfif "alt="">
-                            <img src="kids/kd3.jfif " alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
 
-                    <p class="shoe-size">Available Sizes: 21 - 25</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 1950</span></p>
-                    <p>Now: Ksh 1900</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-                
                 
             </div>
         </section>
 
-        <!-- Clothes Section -->
-        <section id="clothes">
-            <h2>Clothes Collection</h2>
-            <div class="product-grid">
-                <div class="product">
-                    <h3>WA 107</h3>
-                    
-                    <!-- product 1 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/WA107.jfif" alt="" class="active">
-                            <img src="kids/WA107.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 3 Months - 3Yrs</p>
-                    <p class="shoe-size">Colors Available: Pink & Black</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2250</span></p>
-                    <p>Now: Ksh 2200</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>WA 52</h3>
-                    
-                    <!-- product 2 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/wa52.jfif" alt="" class="active">
-                            <img src="kids/wa52.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 9 Yrs - 11Yrs</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2650</span></p>
-                    <p>Now: Ksh 2500</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>WA 79</h3>
-                    
-                    <!-- product 3 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/wa79.jfif" alt="" class="active">
-                            <img src="kids/wa79.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 8Yrs - 10Yrs</p>
-                    <p class="shoe-size">Colors Available: Pink & Peach</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2250</span></p>
-                    <p>Now: Ksh 2200</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>WA 76</h3>
-                    
-                    <!-- product 4 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/wa76.jfif" alt="" class="active">
-                            <img src="kids/wa76.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 8Yrs - 12Yrs</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2250</span></p>
-                    <p>Now: Ksh 2200</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>TA 22</h3>
-                    
-                    <!-- product 9 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/ta22.jfif" alt="" class="active">
-                            <img src="kids/ta22 "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 4Yrs - 6Yrs</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 1900</span></p>
-                    <p>Now: Ksh 1800</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>TA 67</h3>
-                    
-                    <!-- product 6 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/ta67.jfif" alt="" class="active">
-                            <img src="kids/ta67.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 3 Months - 2Yrs</p>
-                    <p class="shoe-size">Colors Available: White,Pink,Green & Blue</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2000</span></p>
-                    <p>Now: Ksh 1940</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>SA 25</h3>
-                    
-                    <!-- product 7 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/sa25.jfif" alt="" class="active">
-                            <img src="kids/sa25.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 3 Months - 3Yrs</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2050</span></p>
-                    <p>Now: Ksh 1950</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>DADDY'S Boy Suit</h3>
-                    
-                    <!-- product 8 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/na19.jfif" alt="" class="active">
-                            <img src="kids/na19.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 1Months - 2Yrs</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2000</span></p>
-                    <p>Now: Ksh 1890</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>Girl's Designs</h3>
-                    
-                    <!-- product 9 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/ta47.jfif" alt="" class="active">
-                            <img src="kids/ta47.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 3Months - 1.5Yrs</p>
-                    <p class="shoe-size">Colors Available: Pink, Biege, & Green</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 1900</span></p>
-                    <p>Now: Ksh 1800</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>Girl's Fansy Dress</h3>
-                    
-                    <!-- product 10 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/va108.jfif" alt="" class="active">
-                            <img src="kids/va108.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 6 Months - 1Yrs</p>
-
-                    <p><span style="text-decoration: line-through;">Ksh 2050</span></p>
-                    <p>Now: Ksh 2000</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-
-                <div class="product">
-                    <h3>Girl's Classic Dress</h3>
-                    
-                    <!-- product 9 -->
-                    <div class="image-carousel">
-                        <button class="scroll-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                
-                        <!-- Main Image Carousel -->
-                        <div class="carousel-images">
-                            <img src="kids/ba18.jfif" alt="" class="active">
-                            <img src="kids/ba18.jfif "alt="">
-                        </div>
-                
-                        <!-- Right Scroll Button -->
-                        <button class="scroll-button right" onclick="scrollCarousel(1)">&#10095;</button>
-                    </div>
-
-                    <p class="shoe-size">Available Sizes: 12 Months</p>
-                
-                    <p><span style="text-decoration: line-through;">Ksh 2520</span></p>
-                    <p>Now: Ksh 2400</p>
-                    <a href="https://wa.me/+254708035693?text=I%20am%20interested%20in%20Kids%20New%20Balance%20Sneaker" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> Request</a>
-                </div>
-                
-                
-                
-                
-                
-                <!-- Add more clothes here -->
-            </div>
+        <!-- Contact Us Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
         </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <p>&copy; 2024 Lisbon Fashions. All rights reserved.</p>
+        </footer>
     </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="social-media">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-pinterest"></i></a>
-        </div>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="men-shop.html">Men Shop</a>
-            <a href="women-shop.html">Women Shop</a>
-            <a href="casual-shop.html">Casual Shop</a>
-        </div>
-        <p>&copy; 2024 Lisbon Fashions. All rights reserved.</p>
-    </footer>
-     <!-- Return to Top Button -->
-    <button id="return-to-top">
-    <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- Floating WhatsApp Icon -->
+    <div class="whatsapp-icon">
+    <a href="https://wa.me/+254708035693" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Make Inquiry</span> <!-- Add text beside the icon -->
+    </a>
+</div>
+<!-- Return to Top Icon -->
+<div class="return-to-top">
+    <a href="#top" title="Return to Top">
+        <i class="fas fa-arrow-up"></i> <!-- Use Font Awesome arrow-up icon -->
+    </a>
+</div>
 
 
+    <script >
+// Get the button
+const returnToTopButton = document.querySelector('.return-to-top');
 
-<!-- Link to the external JavaScript file -->
-<script>
-    // Smooth Scrolling for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent default anchor click behavior
-        const targetId = this.getAttribute('href'); // Get the target ID
-        const targetSection = document.querySelector(targetId); // Select the target section
-
-        // Scroll to the target section smoothly
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Return to Top Button
-const returnToTopButton = document.getElementById('return-to-top');
-
-// Show button when scrolling down
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-        returnToTopButton.style.display = 'block';
+// Show the button when scrolling down 200 pixels from the top
+window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        returnToTopButton.classList.add('show'); // Add show class to make it visible
     } else {
-        returnToTopButton.style.display = 'none';
+        returnToTopButton.classList.remove('show'); // Remove show class to hide it
     }
-});
+};
 
-// Scroll to top when button is clicked
-returnToTopButton.addEventListener('click', () => {
+// Smooth scroll to top when button is clicked
+returnToTopButton.addEventListener('click', function () {
     window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: 'smooth' // Smooth scrolling effect
     });
 });
 
-let currentIndex = 0;
 
-function scrollCarousel(direction) {
-    const carousel = event.currentTarget.closest('.image-carousel'); // Get the closest image carousel
-    const images = carousel.querySelectorAll('.carousel-images img'); // Select images only within this carousel
-    const totalImages = images.length;
 
-    // Hide the current image
-    images[currentIndex].classList.remove('active');
+// Add event listeners for the "Add to Cart" buttons
+document.querySelectorAll('.product button').forEach(button => {
+    button.addEventListener('click', function() {
+        const productElement = this.parentElement; 
+        const productName = productElement.querySelector('h3').innerText;
+        const productPrice = productElement.querySelector('p').innerText; 
 
-    // Update current index
-    currentIndex += direction;
+        addToCart({ name: productName, price: productPrice });
+    });
+});
 
-    // Loop around the index
-    if (currentIndex < 0) {
-        currentIndex = totalImages - 1; // Go to last image
-    } else if (currentIndex >= totalImages) {
-        currentIndex = 0; // Go to first image
+// Form Handling
+const contactForm = document.querySelector('form');
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const name = contactForm.querySelector('input[type="text"]').value;
+    const email = contactForm.querySelector('input[type="email"]').value;
+    const message = contactForm.querySelector('textarea').value;
+
+    // Validate the form (basic example)
+    if (name && email && message) {
+        alert(`Thank you, ${name}! Your message has been sent.`);
+        contactForm.reset(); 
+    } else {
+        alert('Please fill in all fields.');
     }
+});
 
-    // Show the new active image
-    images[currentIndex].classList.add('active');
+window.addEventListener('scroll', function() {
+    var styleSection = document.querySelector('.style-section');
+    var sectionTop = styleSection.getBoundingClientRect().top;
+
+    if (sectionTop < window.innerHeight && sectionTop >= 0) {
+        styleSection.classList.remove('out-of-view');
+    } else {
+        styleSection.classList.add('out-of-view');
+    }
+});
+
+
+document.querySelector('form').addEventListener('submit', function(event) {
+    alert('Your message is sent!');
+});
+
+function toggleMenu() {
+    const menu = document.getElementById("nav-menu");
+    menu.classList.toggle("show");
 }
-
-
-
-</script>
-</body>
-</html>
-
-
+    </script>
 </body>
 </html>
